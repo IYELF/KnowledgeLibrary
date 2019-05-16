@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pactera.knowledge.base.ApiResponse;
 
 /**
  * web错误 全局配置
  */
-@Controller
+@RestController
 public class AppErrorController implements ErrorController {
     private static final String ERROR_PATH = "/error";
 
@@ -39,18 +40,18 @@ public class AppErrorController implements ErrorController {
      * Web页面错误处理
      */
     @RequestMapping(value = ERROR_PATH, produces = "text/html")
-    public String errorPageHandler(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView errorPageHandler(HttpServletRequest request, HttpServletResponse response) {
         int status = response.getStatus();
         switch (status) {
             case 403:
-                return "403";
+                return new ModelAndView("403");
             case 404:
-                return "404";
+                return new ModelAndView("404");
             case 500:
-                return "500";
+                return new ModelAndView("500");
         }
 
-        return "index";
+        return new ModelAndView("index");
     }
 
     /**

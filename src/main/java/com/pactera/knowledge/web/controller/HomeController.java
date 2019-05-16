@@ -1,44 +1,42 @@
 package com.pactera.knowledge.web.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pactera.knowledge.base.ApiResponse;
 
-@Controller
+@RestController
 public class HomeController {
-	@GetMapping("/index")
-	public String index(Model model) {
-		model.addAttribute("name", "welcome");
-		return "index";
+	@GetMapping(value= {"/","index"})
+	public ModelAndView index(Model model) {
+		return new ModelAndView("index");
 	}
 	
 	@GetMapping("/test")
-	@ResponseBody
 	public ApiResponse test() {
 		return ApiResponse.ofMessage(200, "AAAAAAA");
 	}
 	
 	@GetMapping("/404")
-    public String notFoundPage() {
-        return "404";
+    public ModelAndView notFoundPage() {
+        return new ModelAndView("404");
     }
 
     @GetMapping("/403")
-    public String accessError() {
-        return "403";
+    public ModelAndView accessError() {
+        return new ModelAndView("403");
     }
 
     @GetMapping("/500")
-    public String internalError() {
-        return "500";
+    public ModelAndView internalError() {
+        return new ModelAndView("500");
     }
 
     @GetMapping("/logout/page")
-    public String logoutPage() {
-        return "logout";
+    public ModelAndView logoutPage() {
+        return new ModelAndView("logout");
     }
 
 //    @GetMapping(value = "sms/code")

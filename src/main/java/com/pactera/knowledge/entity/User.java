@@ -138,7 +138,7 @@ public class User implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.authorityList;
 	}
 
 	@Override
