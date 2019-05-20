@@ -22,7 +22,9 @@ import com.pactera.knowledge.base.ApiResponse;
  */
 @RestController
 public class AppErrorController implements ErrorController {
-    private static final String ERROR_PATH = "/error";
+    
+	//1
+	private static final String ERROR_PATH = "/error";
 
     private ErrorAttributes errorAttributes;
 
