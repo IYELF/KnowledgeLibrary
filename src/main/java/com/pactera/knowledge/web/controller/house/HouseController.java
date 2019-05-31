@@ -13,7 +13,7 @@ import com.pactera.knowledge.entity.dto.SubwayDTO;
 import com.pactera.knowledge.entity.dto.SubwayStationDTO;
 import com.pactera.knowledge.entity.dto.SupportAddressDTO;
 import com.pactera.knowledge.service.ServiceMultiResult;
-import com.pactera.knowledge.service.hourse.IAddressService;
+import com.pactera.knowledge.service.house.IAddressService;
 
 @RestController
 public class HouseController {

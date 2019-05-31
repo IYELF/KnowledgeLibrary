@@ -1,4 +1,4 @@
-package com.pactera.knowledge.service.hourse;
+package com.pactera.knowledge.service.house;
 
 import java.util.List;
 import java.util.Map;
