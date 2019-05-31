@@ -1,6 +1,6 @@
 package com.pactera.knowledge.entity.dto;
 
-public class SubwayDTO {
+public class SubwayDTO{
     private Long id;
     private String name;
     private String cityEnName;
