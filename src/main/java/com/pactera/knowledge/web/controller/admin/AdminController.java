@@ -6,7 +6,6 @@ import java.io.IOException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,13 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pactera.knowledge.base.ApiResponse;
 
 @RestController
-@RequestMapping("/admin")
 public class AdminController {
     /**
      * 后台管理中心
      * @return
      */
-    @GetMapping("/center")
+    @GetMapping("/admin/center")
     public ModelAndView adminCenterPage() {
         return new ModelAndView("admin/center");
     }
@@ -31,7 +29,7 @@ public class AdminController {
      * 欢迎页
      * @return
      */
-    @GetMapping("/welcome")
+    @GetMapping("/admin/welcome")
     public ModelAndView welcomePage() {
         return new ModelAndView("admin/welcome");
     }
@@ -40,7 +38,7 @@ public class AdminController {
      * 管理员登录页
      * @return
      */
-    @GetMapping("/login")
+    @GetMapping("/admin/login")
     public ModelAndView adminLoginPage() {
         return new ModelAndView("admin/login");
     }
@@ -49,7 +47,7 @@ public class AdminController {
      * 房源列表页
      * @return
      */
-    @GetMapping("/house/list")
+    @GetMapping("admin/house/list")
     public ModelAndView houseListPage() {
         return new ModelAndView("admin/house-list");
     }
@@ -72,7 +70,7 @@ public class AdminController {
      * 新增房源功能页
      * @return
      */
-    @GetMapping("/add/house")
+    @GetMapping("admin/add/house")
     public ModelAndView addHousePage() {
         return new ModelAndView("admin/house-add");
     }
@@ -82,7 +80,7 @@ public class AdminController {
      * @param file
      * @return
      */
-    @PostMapping(value = "/upload/photo", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "admin/upload/photo", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
     public ApiResponse uploadPhoto(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
